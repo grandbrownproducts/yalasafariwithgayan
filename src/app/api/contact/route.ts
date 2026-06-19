@@ -32,7 +32,8 @@ export async function POST(request: Request) {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, "<br>")}</p>`,
     });
-  } catch {
+  } catch (error) {
+    console.error("Contact form email failed:", error);
     return Response.json({ error: "Failed to send message." }, { status: 500 });
   }
 
