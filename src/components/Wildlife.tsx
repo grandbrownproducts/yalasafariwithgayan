@@ -25,15 +25,6 @@ export default function Wildlife() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <h3 className="font-display text-xl font-bold text-white">
-                    {animal.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-white/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {animal.fact}
-                  </p>
-                </div>
               </div>
             </ScrollReveal>
           ))}

@@ -6,12 +6,33 @@ import { siteConfig, whatsappLink } from "@/lib/site-config";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // UI-only submission — wire up an email/CRM service here when ready.
-    setSubmitted(true);
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -83,6 +104,8 @@ export default function Contact() {
                 <input
                   required
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full rounded-lg border border-safari-green/20 px-4 py-2.5 outline-none focus:border-safari-gold focus:ring-2 focus:ring-safari-gold/30"
                   placeholder="Your name"
                 />
@@ -94,6 +117,8 @@ export default function Contact() {
                 <input
                   required
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-lg border border-safari-green/20 px-4 py-2.5 outline-none focus:border-safari-gold focus:ring-2 focus:ring-safari-gold/30"
                   placeholder="you@example.com"
                 />
@@ -105,6 +130,8 @@ export default function Contact() {
                 <textarea
                   required
                   rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="w-full rounded-lg border border-safari-green/20 px-4 py-2.5 outline-none focus:border-safari-gold focus:ring-2 focus:ring-safari-gold/30"
                   placeholder="Tell us about the safari you'd like to book..."
                 />
@@ -112,14 +139,20 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full rounded-full bg-safari-green px-6 py-3 text-sm font-semibold text-safari-cream transition-transform hover:scale-[1.02]"
+                disabled={status === "sending"}
+                className="w-full rounded-full bg-safari-green px-6 py-3 text-sm font-semibold text-safari-cream transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
               >
-                Send Message
+                {status === "sending" ? "Sending..." : "Send Message"}
               </button>
 
-              {submitted && (
+              {status === "sent" && (
                 <p className="text-center text-sm font-medium text-safari-green">
                   Thanks! We&apos;ll get back to you shortly.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-center text-sm font-medium text-red-600">
+                  Something went wrong. Please try WhatsApp instead.
                 </p>
               )}
             </form>

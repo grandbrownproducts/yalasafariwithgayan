@@ -4,12 +4,11 @@ export const siteConfig = {
   tagline: "Discover the Wild Beauty of Yala with Gayan",
   description:
     "Experience unforgettable wildlife adventures in Sri Lanka's most famous national park with an expert local guide.",
-  url: "https://www.yalasafariwithgayan.com",
+  url: "https://www.gayansafari.com",
   location: "Yala National Park, Sri Lanka",
-  whatsappNumber: "94779028037",
-  phoneDisplay: "+94 77 902 8037",
-  // PLACEHOLDER — replace with real business email
-  email: "info@yalasafariwithgayan.com",
+  whatsappNumber: "94775420233",
+  phoneDisplay: "+94 77 542 0233",
+  email: "gayasafarisl@gmail.com",
   mapEmbedUrl:
     "https://www.google.com/maps?q=Yala+National+Park,+Sri+Lanka&output=embed",
   social: {

@@ -42,11 +42,7 @@ export default function Gallery() {
                   height={i % 3 === 0 ? 750 : 450}
                   className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100">
-                  <span className="p-4 text-sm font-medium text-white">
-                    {img.category}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               </button>
             </ScrollReveal>
           ))}

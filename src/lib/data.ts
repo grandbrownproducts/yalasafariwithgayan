@@ -7,11 +7,50 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+export type SafariDestination = {
+  slug: string;
+  name: string;
+  image: string;
+  description: string;
+};
+
+export const safariDestinations: SafariDestination[] = [
+  {
+    slug: "yala",
+    name: "Yala National Park",
+    image: "/wildlife/leopard-dark-portrait.jpeg",
+    description:
+      "Sri Lanka's most famous park, renowned for the highest leopard density in the world.",
+  },
+  {
+    slug: "udawalawe",
+    name: "Udawalawe National Park",
+    image:
+      "https://images.unsplash.com/photo-1617867644194-550af3ae2c56?q=80&w=1200&auto=format&fit=crop",
+    description:
+      "A wide-open savannah famous for huge wild elephant herds gathered around the reservoir.",
+  },
+  {
+    slug: "bundala",
+    name: "Bundala National Park",
+    image: "/wildlife/black-necked-stork.jpeg",
+    description:
+      "A wetland sanctuary and birdwatcher's paradise, home to flamingos and migratory species.",
+  },
+  {
+    slug: "lunugamwehera",
+    name: "Lunugamwehera National Park",
+    image: "/wildlife/crocodile.jpg",
+    description:
+      "A quieter, less-crowded park bridging Yala and Udawalawe, rich in elephants and crocodiles.",
+  },
+];
+
 export type SafariPackage = {
   slug: string;
   title: string;
-  duration: string;
-  description: string;
+  time: string;
+  price: string;
   image: string;
   features: string[];
 };
@@ -19,12 +58,10 @@ export type SafariPackage = {
 export const safariPackages: SafariPackage[] = [
   {
     slug: "morning-safari",
-    title: "Morning Safari",
-    duration: "5–6 hours",
-    description:
-      "Catch the park at first light, when leopards and elephants are most active and the air is cool and still.",
-    image:
-      "https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=1200&auto=format&fit=crop",
+    title: "5 Hours Morning Safari Tour",
+    time: "05:00 AM – 10:00 AM",
+    price: "USD 60",
+    image: "/wildlife/leopard-portrait-lying.jpeg",
     features: [
       "Pickup before sunrise",
       "Best leopard sighting window",
@@ -34,12 +71,10 @@ export const safariPackages: SafariPackage[] = [
   },
   {
     slug: "evening-safari",
-    title: "Evening Safari",
-    duration: "5–6 hours",
-    description:
-      "Watch Yala glow gold as the sun sets behind ancient rock formations, with wildlife emerging for the evening.",
-    image:
-      "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?q=80&w=1200&auto=format&fit=crop",
+    title: "5 Hours Evening Safari Tour",
+    time: "01:30 PM – 06:00 PM",
+    price: "USD 60",
+    image: "/wildlife/sambar-deer.jpeg",
     features: [
       "Golden-hour photography",
       "Sunset over the savannah",
@@ -48,35 +83,75 @@ export const safariPackages: SafariPackage[] = [
     ],
   },
   {
-    slug: "full-day-safari",
-    title: "Full Day Safari",
-    duration: "Full day",
-    description:
-      "The complete Yala experience — covering more ground, more habitats, and the best chance to see it all.",
-    image:
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200&auto=format&fit=crop",
+    slug: "half-day-safari",
+    title: "7 Hours Half Day Safari Tour",
+    time: "05:00 AM – 12:00 PM",
+    price: "USD 70",
+    image: "/wildlife/leopard-walking-road.jpeg",
     features: [
-      "Morning and evening combined",
-      "Lunch break at scenic spot",
-      "Maximum wildlife coverage",
+      "Morning and midday combined",
+      "Extended wildlife coverage",
+      "Snack break included",
       "Ideal for photographers",
     ],
   },
   {
-    slug: "private-safari",
-    title: "Private Safari",
-    duration: "Customizable",
-    description:
-      "An exclusive jeep just for you and your loved ones — flexible timing, pace, and a fully personalized route.",
-    image:
-      "https://images.unsplash.com/photo-1516815231560-8f41ec531527?q=80&w=1200&auto=format&fit=crop",
+    slug: "full-day-safari",
+    title: "Full Day Safari Tour",
+    time: "05:00 AM – 06:00 PM",
+    price: "USD 105",
+    image: "/wildlife/kingfisher-dark-bg.jpeg",
     features: [
-      "Private 4x4 jeep",
-      "Flexible schedule",
-      "Tailored to your interests",
+      "Morning and evening combined",
+      "Lunch break at scenic spot",
+      "Maximum wildlife coverage",
       "Perfect for families & couples",
     ],
   },
+];
+
+export const packageImagesByDestination: Record<string, Record<string, string>> = {
+  yala: {
+    "morning-safari": "/wildlife/leopard-portrait-lying.jpeg",
+    "evening-safari": "/wildlife/sambar-deer.jpeg",
+    "half-day-safari": "/wildlife/leopard-walking-road.jpeg",
+    "full-day-safari": "/wildlife/kingfisher-dark-bg.jpeg",
+  },
+  udawalawe: {
+    "morning-safari":
+      "https://images.unsplash.com/photo-1617867644194-550af3ae2c56?q=80&w=1200&auto=format&fit=crop",
+    "evening-safari":
+      "https://images.unsplash.com/photo-1609242030544-f2a37bab739c?q=80&w=1200&auto=format&fit=crop",
+    "half-day-safari":
+      "https://images.unsplash.com/photo-1731124655617-e74233ed4a4d?q=80&w=1200&auto=format&fit=crop",
+    "full-day-safari":
+      "https://images.unsplash.com/photo-1617867644194-550af3ae2c56?q=80&w=1200&auto=format&fit=crop",
+  },
+  bundala: {
+    "morning-safari": "/wildlife/black-necked-stork.jpeg",
+    "evening-safari": "/wildlife/sambar-deer.jpeg",
+    "half-day-safari": "/wildlife/hoopoe-calling.jpeg",
+    "full-day-safari": "/wildlife/kingfisher-green-bg.jpeg",
+  },
+  lunugamwehera: {
+    "morning-safari": "/wildlife/crocodile.jpg",
+    "evening-safari":
+      "https://images.unsplash.com/photo-1609242030544-f2a37bab739c?q=80&w=1200&auto=format&fit=crop",
+    "half-day-safari": "/wildlife/toque-macaques.jpeg",
+    "full-day-safari": "/wildlife/sri-lanka-junglefowl.jpeg",
+  },
+};
+
+export type IncludedService = {
+  title: string;
+  icon: "water" | "coolbox" | "binoculars" | "driver";
+};
+
+export const includedServices: IncludedService[] = [
+  { title: "Free Water Bottles", icon: "water" },
+  { title: "Cool Box", icon: "coolbox" },
+  { title: "Binoculars", icon: "binoculars" },
+  { title: "Experienced Safari Driver", icon: "driver" },
 ];
 
 export type Feature = {
@@ -139,38 +214,34 @@ export type WildlifeAnimal = {
 export const wildlifeHighlights: WildlifeAnimal[] = [
   {
     name: "Sri Lankan Leopard",
-    image:
-      "https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=900&auto=format&fit=crop",
+    image: "/wildlife/leopard-portrait-closeup.jpeg",
     fact: "Yala has one of the highest densities of leopards anywhere in the world.",
   },
   {
     name: "Elephant",
     image:
-      "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1617867644194-550af3ae2c56?q=80&w=900&auto=format&fit=crop",
     fact: "Sri Lankan elephants gather here in large herds, especially near waterholes.",
   },
   {
     name: "Sloth Bear",
-    image:
-      "https://images.unsplash.com/photo-1611689342806-0863700ce1e4?q=80&w=900&auto=format&fit=crop",
+    image: "/wildlife/sloth-bear-with-cubs.jpeg",
     fact: "Shy and rare to spot, sloth bears are one of Yala's most exciting sightings.",
   },
   {
     name: "Crocodile",
-    image:
-      "https://images.unsplash.com/photo-1591025207163-942350e47db2?q=80&w=900&auto=format&fit=crop",
+    image: "/wildlife/crocodile.jpg",
     fact: "Both mugger and saltwater crocodiles bask along Yala's lagoons and rivers.",
   },
   {
     name: "Peacock",
     image:
-      "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1727899662754-a06f1ad2c3bb?q=80&w=900&auto=format&fit=crop",
     fact: "Sri Lanka's national bird displays its full plumage often during mating season.",
   },
   {
     name: "Exotic Birds",
-    image:
-      "https://images.unsplash.com/photo-1444465693258-0abc8c4d3dab?q=80&w=900&auto=format&fit=crop",
+    image: "/wildlife/bee-eater.jpeg",
     fact: "Over 200 species call Yala home, making it a paradise for birdwatchers.",
   },
 ];
@@ -178,18 +249,18 @@ export const wildlifeHighlights: WildlifeAnimal[] = [
 export type GalleryImage = {
   src: string;
   alt: string;
-  category: "Leopards" | "Elephants" | "Safari Jeeps" | "Landscapes" | "Birds" | "Sunsets";
+  category: "Leopards" | "Elephants" | "Safari Jeeps" | "Landscapes" | "Birds" | "Sunsets" | "Wildlife";
 };
 
 export const galleryImages: GalleryImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=1000&auto=format&fit=crop",
-    alt: "Sri Lankan leopard resting on a rock",
+    src: "/wildlife/leopard-face-bushes.jpeg",
+    alt: "Sri Lankan leopard peering through the bushes",
     category: "Leopards",
   },
   {
-    src: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?q=80&w=1000&auto=format&fit=crop",
-    alt: "Elephant herd in Yala",
+    src: "https://images.unsplash.com/photo-1609242030544-f2a37bab739c?q=80&w=1000&auto=format&fit=crop",
+    alt: "Asian elephants grazing in Yala",
     category: "Elephants",
   },
   {
@@ -203,8 +274,8 @@ export const galleryImages: GalleryImage[] = [
     category: "Landscapes",
   },
   {
-    src: "https://images.unsplash.com/photo-1444465693258-0abc8c4d3dab?q=80&w=1000&auto=format&fit=crop",
-    alt: "Exotic bird perched on a branch",
+    src: "/wildlife/hoopoe-on-stump.jpeg",
+    alt: "Hoopoe perched on a tree stump",
     category: "Birds",
   },
   {
@@ -213,7 +284,7 @@ export const galleryImages: GalleryImage[] = [
     category: "Sunsets",
   },
   {
-    src: "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?q=80&w=1000&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1727899662754-a06f1ad2c3bb?q=80&w=1000&auto=format&fit=crop",
     alt: "Peacock displaying its feathers",
     category: "Birds",
   },
@@ -223,24 +294,69 @@ export const galleryImages: GalleryImage[] = [
     category: "Safari Jeeps",
   },
   {
-    src: "https://images.unsplash.com/photo-1591025207163-942350e47db2?q=80&w=1000&auto=format&fit=crop",
+    src: "/wildlife/crocodile.jpg",
     alt: "Crocodile resting near the water",
-    category: "Landscapes",
+    category: "Wildlife",
   },
   {
-    src: "https://images.unsplash.com/photo-1456926631375-92c8ce872def?q=80&w=1000&auto=format&fit=crop",
-    alt: "Elephants by the waterhole",
+    src: "https://images.unsplash.com/photo-1731124655617-e74233ed4a4d?q=80&w=1000&auto=format&fit=crop",
+    alt: "Elephant drinking at the waterhole",
     category: "Elephants",
   },
   {
-    src: "https://images.unsplash.com/photo-1474511320723-9a56873867b5?q=80&w=1000&auto=format&fit=crop",
-    alt: "Golden sunset reflecting on the lake",
-    category: "Sunsets",
+    src: "/wildlife/leopard-sand-walking.jpeg",
+    alt: "Leopard walking along a sandy track",
+    category: "Leopards",
   },
   {
-    src: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=1000&auto=format&fit=crop",
+    src: "/wildlife/leopard-grass-stare.jpeg",
     alt: "Leopard walking through tall grass",
     category: "Leopards",
+  },
+  {
+    src: "/wildlife/leopard-sand-resting.jpeg",
+    alt: "Leopard resting on a sandy track",
+    category: "Leopards",
+  },
+  {
+    src: "/wildlife/leopard-on-branch.jpeg",
+    alt: "Leopard perched on a tree branch",
+    category: "Leopards",
+  },
+  {
+    src: "/wildlife/leopard-pair-resting.jpeg",
+    alt: "Two leopards resting together in the grass",
+    category: "Leopards",
+  },
+  {
+    src: "/wildlife/crested-hawk-eagle.jpeg",
+    alt: "Crested hawk-eagle perched in the rain",
+    category: "Birds",
+  },
+  {
+    src: "/wildlife/black-necked-stork.jpeg",
+    alt: "Black-necked stork close-up",
+    category: "Birds",
+  },
+  {
+    src: "/wildlife/kingfisher-dark-bg.jpeg",
+    alt: "Common kingfisher on a branch",
+    category: "Birds",
+  },
+  {
+    src: "/wildlife/sambar-deer.jpeg",
+    alt: "Sambar deer stag in the grassland",
+    category: "Wildlife",
+  },
+  {
+    src: "/wildlife/toque-macaques.jpeg",
+    alt: "Toque macaques resting in the trees",
+    category: "Wildlife",
+  },
+  {
+    src: "/wildlife/sri-lanka-junglefowl.jpeg",
+    alt: "Sri Lankan junglefowl pair",
+    category: "Wildlife",
   },
 ];
 
