@@ -151,7 +151,7 @@ export default function Packages() {
                         ))}
                       </ul>
 
-                      <div className="mt-6 flex flex-col gap-2">
+                      <div className="mt-6">
                         <a
                           href={whatsappLink(
                             `Hi Gayan! I'd like to book the ${pkg.title} at ${destination.name}.`
@@ -161,17 +161,6 @@ export default function Packages() {
                           className="inline-flex items-center justify-center rounded-full bg-safari-gold px-5 py-2.5 text-sm font-semibold text-safari-dark transition-transform hover:scale-105"
                         >
                           Book Now
-                        </a>
-                        <a
-                          href={whatsappLink(
-                            `Hi Gayan! I have a question about the ${pkg.title} at ${destination.name}.`
-                          )}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366]/15 px-5 py-2.5 text-sm font-semibold text-[#25D366] ring-1 ring-[#25D366]/30 transition-transform hover:scale-105"
-                        >
-                          <MessageCircle size={16} />
-                          WhatsApp Inquiry
                         </a>
                       </div>
                     </div>
