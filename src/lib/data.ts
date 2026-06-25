@@ -33,7 +33,7 @@ export const safariDestinations: SafariDestination[] = [
   {
     slug: "bundala",
     name: "Bundala National Park",
-    image: "/wildlife/black-necked-stork.jpeg",
+    image: "/wildlife/peacock-on-stump.jpeg",
     description:
       "A wetland sanctuary and birdwatcher's paradise, home to flamingos and migratory species.",
   },
@@ -112,16 +112,15 @@ export const safariPackages: SafariPackage[] = [
 
 export const packageImagesByDestination: Record<string, Record<string, string>> = {
   yala: {
-    "morning-safari": "/wildlife/leopard-portrait-lying.jpeg",
-    "evening-safari": "/wildlife/sambar-deer.jpeg",
-    "half-day-safari": "/wildlife/leopard-walking-road.jpeg",
-    "full-day-safari": "/wildlife/kingfisher-dark-bg.jpeg",
+    "morning-safari": "/wildlife/leopard-standing-road.jpeg",
+    "evening-safari": "/wildlife/spotted-deer-fawn.jpeg",
+    "half-day-safari": "/wildlife/sloth-bear-cub-walking.jpeg",
+    "full-day-safari": "/wildlife/tusker-elephant-walking.jpeg",
   },
   udawalawe: {
     "morning-safari":
       "https://images.unsplash.com/photo-1617867644194-550af3ae2c56?q=80&w=1200&auto=format&fit=crop",
-    "evening-safari":
-      "https://images.unsplash.com/photo-1609242030544-f2a37bab739c?q=80&w=1200&auto=format&fit=crop",
+    "evening-safari": "/wildlife/elephant-by-lake.jpeg",
     "half-day-safari":
       "https://images.unsplash.com/photo-1731124655617-e74233ed4a4d?q=80&w=1200&auto=format&fit=crop",
     "full-day-safari":
@@ -129,7 +128,7 @@ export const packageImagesByDestination: Record<string, Record<string, string>> 
   },
   bundala: {
     "morning-safari": "/wildlife/black-necked-stork.jpeg",
-    "evening-safari": "/wildlife/sambar-deer.jpeg",
+    "evening-safari": "/wildlife/stork-billed-kingfisher.jpeg",
     "half-day-safari": "/wildlife/hoopoe-calling.jpeg",
     "full-day-safari": "/wildlife/kingfisher-green-bg.jpeg",
   },
