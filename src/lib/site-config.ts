@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "Yala Safari With Gayan",
-  shortName: "Yala Safari",
+  name: "Yala Gaya Safari With Gayan",
+  shortName: "Yala Gaya Safari",
   tagline: "Discover the Wild Beauty of Yala with Gayan",
   description:
     "Experience unforgettable wildlife adventures in Sri Lanka's most famous national park with an expert local guide.",
