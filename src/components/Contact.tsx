@@ -43,7 +43,7 @@ export default function Contact() {
             Contact
           </span>
           <h2 className="mt-3 font-display text-3xl font-bold text-safari-green sm:text-4xl">
-            Plan Your Yala Safari Today
+            Plan Your Yala Gaya Safari Today
           </h2>
         </ScrollReveal>
 
@@ -60,13 +60,18 @@ export default function Contact() {
                 </p>
                 <p className="flex items-center gap-3">
                   <Mail size={20} className="shrink-0 text-safari-gold" />
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-safari-green">
+                  <a href={`mailto:${siteConfig.email}`} className="focus-ring hover:text-safari-green">
                     {siteConfig.email}
                   </a>
                 </p>
                 <p className="flex items-center gap-3">
                   <MessageCircle size={20} className="shrink-0 text-safari-gold" />
-                  {siteConfig.phoneDisplay}
+                  <a
+                    href={`tel:+${siteConfig.whatsappNumber}`}
+                    className="focus-ring hover:text-safari-green"
+                  >
+                    {siteConfig.phoneDisplay}
+                  </a>
                 </p>
               </div>
 
@@ -74,7 +79,7 @@ export default function Contact() {
                 href={whatsappLink("Hi Gayan! I'd like to plan a Yala safari.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
+                className="focus-ring mt-6 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
               >
                 <MessageCircle size={18} />
                 Chat on WhatsApp
@@ -98,10 +103,14 @@ export default function Contact() {
               className="space-y-5 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-safari-green/10"
             >
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-safari-dark/80">
+                <label
+                  htmlFor="contact-name"
+                  className="mb-1.5 block text-sm font-medium text-safari-dark/80"
+                >
                   Full Name
                 </label>
                 <input
+                  id="contact-name"
                   required
                   type="text"
                   value={name}
@@ -111,10 +120,14 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-safari-dark/80">
+                <label
+                  htmlFor="contact-email"
+                  className="mb-1.5 block text-sm font-medium text-safari-dark/80"
+                >
                   Email
                 </label>
                 <input
+                  id="contact-email"
                   required
                   type="email"
                   value={email}
@@ -124,10 +137,14 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-safari-dark/80">
+                <label
+                  htmlFor="contact-message"
+                  className="mb-1.5 block text-sm font-medium text-safari-dark/80"
+                >
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   required
                   rows={4}
                   value={message}
@@ -140,21 +157,23 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full rounded-full bg-safari-green px-6 py-3 text-sm font-semibold text-safari-cream transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
+                className="focus-ring w-full rounded-full bg-safari-green px-6 py-3 text-sm font-semibold text-safari-cream transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
 
-              {status === "sent" && (
-                <p className="text-center text-sm font-medium text-safari-green">
-                  Thanks! We&apos;ll get back to you shortly.
-                </p>
-              )}
-              {status === "error" && (
-                <p className="text-center text-sm font-medium text-red-600">
-                  Something went wrong. Please try WhatsApp instead.
-                </p>
-              )}
+              <div aria-live="polite">
+                {status === "sent" && (
+                  <p className="text-center text-sm font-medium text-safari-green">
+                    Thanks! We&apos;ll get back to you shortly.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="text-center text-sm font-medium text-red-600">
+                    Something went wrong. Please try WhatsApp instead.
+                  </p>
+                )}
+              </div>
             </form>
           </ScrollReveal>
         </div>

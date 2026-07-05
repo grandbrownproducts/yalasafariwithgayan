@@ -99,9 +99,17 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-safari-cream">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-safari-gold focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-safari-dark"
+        >
+          Skip to content
+        </a>
         <LoadingScreen />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
         <WhatsAppButton />
         <BackToTop />

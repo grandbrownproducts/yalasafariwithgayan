@@ -20,7 +20,7 @@ export default function BackToTop() {
         <motion.button
           aria-label="Back to top"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-safari-green text-safari-cream shadow-xl"
+          className="focus-ring fixed bottom-6 left-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-safari-green text-safari-cream shadow-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}

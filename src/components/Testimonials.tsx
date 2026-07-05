@@ -30,7 +30,7 @@ export default function Testimonials() {
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <div className="relative h-11 w-11 overflow-hidden rounded-full">
-                    <Image src={t.image} alt={t.name} fill className="object-cover" />
+                    <Image src={t.image} alt={t.name} fill sizes="44px" className="object-cover" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-safari-cream">{t.name}</p>

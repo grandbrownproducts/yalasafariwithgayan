@@ -35,7 +35,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="#home" className="font-display text-xl text-safari-cream">
+            <Link href="#home" className="focus-ring font-display text-xl text-safari-cream">
               {siteConfig.shortName}
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-safari-cream/60">
@@ -51,7 +51,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-safari-cream/60 transition-colors hover:text-safari-gold"
+                    className="focus-ring text-sm text-safari-cream/60 transition-colors hover:text-safari-gold"
                   >
                     {link.label}
                   </a>
@@ -86,7 +86,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-safari-cream/70 transition-colors hover:bg-safari-gold hover:text-safari-dark"
+                className="focus-ring flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-safari-cream/70 transition-colors hover:bg-safari-gold hover:text-safari-dark"
               >
                 <FacebookIcon className="h-4.5 w-4.5" />
               </a>
@@ -95,7 +95,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-safari-cream/70 transition-colors hover:bg-safari-gold hover:text-safari-dark"
+                className="focus-ring flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-safari-cream/70 transition-colors hover:bg-safari-gold hover:text-safari-dark"
               >
                 <InstagramIcon className="h-4.5 w-4.5" />
               </a>
@@ -104,7 +104,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-safari-cream/70 transition-colors hover:bg-safari-gold hover:text-safari-dark"
+                className="focus-ring flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-safari-cream/70 transition-colors hover:bg-safari-gold hover:text-safari-dark"
               >
                 <YoutubeIcon className="h-4.5 w-4.5" />
               </a>

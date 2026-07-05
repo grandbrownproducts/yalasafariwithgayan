@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -9,12 +9,42 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function Gallery() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
 
-  const close = () => setActiveIndex(null);
+  const close = () => {
+    setActiveIndex(null);
+    triggerRef.current?.focus();
+  };
   const prev = () =>
     setActiveIndex((i) => (i === null ? null : (i - 1 + galleryImages.length) % galleryImages.length));
   const next = () =>
     setActiveIndex((i) => (i === null ? null : (i + 1) % galleryImages.length));
+
+  const openAt = (i: number, e: React.MouseEvent<HTMLButtonElement>) => {
+    triggerRef.current = e.currentTarget;
+    setActiveIndex(i);
+  };
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex !== null]);
 
   return (
     <section id="gallery" className="bg-safari-cream py-20 sm:py-28">
@@ -28,12 +58,13 @@ export default function Gallery() {
           </h2>
         </ScrollReveal>
 
-        <div className="mt-14 [column-fill:_balance] columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <div className="mt-14 [column-fill:balance] columns-1 gap-4 sm:columns-2 lg:columns-3">
           {galleryImages.map((img, i) => (
             <ScrollReveal key={img.src} delay={(i % 6) * 0.06} className="mb-4">
               <button
-                onClick={() => setActiveIndex(i)}
-                className="group relative block w-full overflow-hidden rounded-2xl"
+                onClick={(e) => openAt(i, e)}
+                aria-label={`View larger image: ${img.alt}`}
+                className="focus-ring group relative block w-full overflow-hidden rounded-2xl"
               >
                 <Image
                   src={img.src}
@@ -52,15 +83,19 @@ export default function Gallery() {
       <AnimatePresence>
         {activeIndex !== null && (
           <motion.div
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-black/90 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label={galleryImages[activeIndex].alt}
+            className="fixed inset-0 z-90 flex items-center justify-center bg-black/90 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={close}
           >
             <button
+              ref={closeButtonRef}
               aria-label="Close lightbox"
-              className="absolute right-5 top-5 text-white/80 hover:text-white"
+              className="focus-ring absolute right-5 top-5 text-white/80 hover:text-white"
               onClick={close}
             >
               <X size={32} />
@@ -68,7 +103,7 @@ export default function Gallery() {
 
             <button
               aria-label="Previous image"
-              className="absolute left-3 text-white/80 hover:text-white sm:left-8"
+              className="focus-ring absolute left-3 text-white/80 hover:text-white sm:left-8"
               onClick={(e) => {
                 e.stopPropagation();
                 prev();
@@ -88,13 +123,14 @@ export default function Gallery() {
                 src={galleryImages[activeIndex].src}
                 alt={galleryImages[activeIndex].alt}
                 fill
+                sizes="(min-width: 1024px) 896px, 100vw"
                 className="object-contain"
               />
             </motion.div>
 
             <button
               aria-label="Next image"
-              className="absolute right-3 text-white/80 hover:text-white sm:right-8"
+              className="focus-ring absolute right-3 text-white/80 hover:text-white sm:right-8"
               onClick={(e) => {
                 e.stopPropagation();
                 next();
