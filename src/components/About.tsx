@@ -15,11 +15,12 @@ export default function About() {
     <section id="about" className="bg-safari-cream py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-8">
         <ScrollReveal>
-          <div className="relative h-[420px] w-full overflow-hidden rounded-3xl shadow-2xl sm:h-[500px]">
+          <div className="relative h-105 w-full overflow-hidden rounded-3xl shadow-2xl sm:h-125">
             <Image
-              src="https://images.unsplash.com/photo-1516815231560-8f41ec531527?q=80&w=1200&auto=format&fit=crop"
-              alt="Safari guide Gayan leading a tour in Yala National Park"
+              src="/wildlife/leopard-lying-road.jpeg"
+              alt="Sri Lankan leopard resting on a safari track in Yala National Park"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </div>

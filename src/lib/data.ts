@@ -72,7 +72,7 @@ export const safariPackages: SafariPackage[] = [
   {
     slug: "evening-safari",
     title: "5 Hours Evening Safari Tour",
-    time: "01:30 PM – 06:00 PM",
+    time: "01:00 PM – 06:00 PM",
     price: "USD 60",
     image: "/wildlife/sambar-deer.jpeg",
     features: [
@@ -123,8 +123,7 @@ export const packageImagesByDestination: Record<string, Record<string, string>> 
     "evening-safari": "/wildlife/elephant-by-lake.jpeg",
     "half-day-safari":
       "https://images.unsplash.com/photo-1731124655617-e74233ed4a4d?q=80&w=1200&auto=format&fit=crop",
-    "full-day-safari":
-      "https://images.unsplash.com/photo-1617867644194-550af3ae2c56?q=80&w=1200&auto=format&fit=crop",
+    "full-day-safari": "/wildlife/tusker-elephant-walking.jpeg",
   },
   bundala: {
     "morning-safari": "/wildlife/black-necked-stork.jpeg",
@@ -263,16 +262,6 @@ export const galleryImages: GalleryImage[] = [
     category: "Elephants",
   },
   {
-    src: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000&auto=format&fit=crop",
-    alt: "Safari jeep driving through the park",
-    category: "Safari Jeeps",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=1000&auto=format&fit=crop",
-    alt: "Yala National Park landscape",
-    category: "Landscapes",
-  },
-  {
     src: "/wildlife/hoopoe-on-stump.jpeg",
     alt: "Hoopoe perched on a tree stump",
     category: "Birds",
@@ -286,11 +275,6 @@ export const galleryImages: GalleryImage[] = [
     src: "https://images.unsplash.com/photo-1727899662754-a06f1ad2c3bb?q=80&w=1000&auto=format&fit=crop",
     alt: "Peacock displaying its feathers",
     category: "Birds",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1516815231560-8f41ec531527?q=80&w=1000&auto=format&fit=crop",
-    alt: "Jeep safari at dusk",
-    category: "Safari Jeeps",
   },
   {
     src: "/wildlife/crocodile.jpg",
